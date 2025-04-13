@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bosorne Books</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f3f4f6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      text-align: center;
+      width: 300px;
+    }
+
+    input[type="password"] {
+      padding: 0.5rem;
+      width: 100%;
+      margin: 1rem 0;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
+
+    button {
+      padding: 0.5rem 1rem;
+      background-color: #111827;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .error {
+      color: red;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+
+    .locked-out {
+      color: orange;
+      margin-top: 1rem;
+      font-size: 0.9rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Enter Password to Continue</h2>
+    <input type="password" id="password" placeholder="Password" />
+    <button onclick="checkPassword()">Enter</button>
+    <div class="error" id="errorMsg"></div>
+    <div class="locked-out" id="lockMsg"></div>
+    <div id="countdown" style="font-weight: bold; color: green;"></div>
+  </div>
+
+  <script>
+    const correctPassword = "bosorne-books-website678"; // Change this to your desired password
+    let attempts = 0;
+    const maxAttempts = 7;
+    const lockoutTime = 5 * 60 * 1000; // 5 minutes in milliseconds
+    let isLockedOut = false;
+    let lockoutEndTime;
+
+    function checkPassword() {
+      const password = document.getElementById("password").value;
+      const errorMsg = document.getElementById("errorMsg");
+      const lockMsg = document.getElementById("lockMsg");
+      const countdownDisplay = document.getElementById("countdown");
+
+      if (isLockedOut) {
+        const timeLeft = Math.ceil((lockoutEndTime - Date.now()) / 1000);
+        lockMsg.textContent = `You are locked out 🔒😟☹️. Try again in ${timeLeft} seconds.`;
+        startCountdown(timeLeft);
+        return;
+      }
+
+      if (password === correctPassword) {
+        // Redirect to the homepage if the password is correct
+        window.location.href = "homepage.html";
+      } else {
+        attempts++;
+        errorMsg.textContent = `Oopsies! Have another go🔒. Attempts: ${attempts}/${maxAttempts}`;
+        lockMsg.textContent = ""; // Clear the lockout message
+        countdownDisplay.textContent = ""; // Reset countdown display
+
+        if (attempts >= maxAttempts) {
+          isLockedOut = true;
+          lockoutEndTime = Date.now() + lockoutTime;
+          lockMsg.textContent = `Oh no! Sorry, but I'm locking you out for 5 minutes. 🔒😔😟☹️`;
+          
+          const timeLeft = Math.ceil(lockoutTime / 1000);
+          startCountdown(timeLeft);
+          
+          setTimeout(() => {
+              isLockedOut = false;
+              attempts = 0; // Reset attempts after lockout ends
+              lockMsg.textContent = ""; // Clear lockout message
+              errorMsg.textContent = ""; // Clear previous error message
+              countdownDisplay.textContent = ""; // Clear countdown display
+          }, lockoutTime);
+        }
+      }
+    }
+
+    function startCountdown(seconds) {
+      const countdownDisplay = document.getElementById("countdown");
+      
+      const interval = setInterval(() => {
+          if (seconds <= 0) {
+              clearInterval(interval); // Stop the countdown when it reaches 0
+              return;
+          }
+
+          const minutes = Math.floor(seconds / 60);
+          const secs = seconds % 60;
+          countdownDisplay.textContent = `Time left: ${minutes}:${secs < 10 ? '0' : ''}${secs}`;
+          seconds--;
+      }, 1000);
+    }
+  </script>
+</body>
+</html>
