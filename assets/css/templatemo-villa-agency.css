@@ -326,12 +326,12 @@ Header Style
 }
 
 .sub-header ul.social-links li a:hover {
-  background-color: #f35525;
+  background-color: #7ecbff;
 }
 
 .sub-header ul.info li {
   font-size: 14px;
-  color: #7a7a7a;
+  color: #7ecbff;
   border-right: 1px solid #eee;
   margin-right: 25px;
   padding-right: 25px;
@@ -345,7 +345,7 @@ Header Style
 
 .sub-header ul.info li i {
   font-size: 20px;
-  color: #f35525;
+  color: #7ecbff;
   margin-right: 8px;
 }
 
@@ -651,7 +651,7 @@ Header Style
   }
   .header-area.header-sticky .nav li a:hover,
   .header-area.header-sticky .nav li a.active {
-    color: #ee626b!important;
+    color: #7ecbff;!important;
     opacity: 1;
   }
   .header-area.header-sticky .nav li.search-icon a {
@@ -758,7 +758,7 @@ Banner Style
 
 .main-banner .item span.category em {
   font-style: normal;
-  color: #f35525;
+  color: #7ecbff;
 }
 
 .main-banner .item h2 {
