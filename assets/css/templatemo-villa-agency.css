@@ -452,7 +452,7 @@ Header Style
 }
 
 .header-area .main-nav .nav li:last-child a i {
-  background-color: #f35525;
+  background-color: #7ecbff;
   display: inline-block;
   width: 40px;
   height: 40px;
@@ -472,16 +472,16 @@ Header Style
 }
 
 .header-area .main-nav .nav li:hover a {
-  color: #f35525;
+  color: #7ecbff;
 }
 
 .header-area .main-nav .nav li a.active {
-  color: #f35525;
+  color: #7ecbff;
 }
 
 
 .background-header .main-nav .nav li a.active {
-  color: #f35525;
+  color: #7ecbff;
 }
 
 .header-area .main-nav .menu-trigger {
