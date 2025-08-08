@@ -152,54 +152,34 @@
   </div>
 
 	
-	<header>
-        <h1>Latest Blog Posts</h1>
-        
-    </header>
+	<div class="container">
+    <h1>Blog</h1>
+    <div id="blog-posts"></div>
+  </div>
 
-    <main id="blogContainer"></main>
-
-    <script src="script.js"></script>
-    <script>
-        // Check login state
-        if (localStorage.getItem("loggedIn") === "true") {
-            document.getElementById("newPostBtn").style.display = "inline-block";
-            document.getElementById("newPostBtn").onclick = function () {
-                window.location.href = "create.html";
-            };
-        }
-
-        // Load and display posts
-        const blogContainer = document.getElementById("blogContainer");
-        let posts = JSON.parse(localStorage.getItem("posts")) || [];
-
-        if (posts.length === 0) {
-            blogContainer.innerHTML = "<p>No posts yet. Check back soon!</p>";
-        } else {
-            posts.reverse().forEach(post => {
-                const postEl = document.createElement("article");
-                postEl.classList.add("post");
-
-                let imageHTML = post.image ? `<img src="${post.image}" alt="Post Image" class="post-image">` : "";
-                
-                postEl.innerHTML = `
-                    <h2>${post.title}</h2>
-                    <p class="author">By ${post.author}</p>
-                    ${imageHTML}
-                    <p>${post.content}</p>
-                    <hr>
-                `;
-                blogContainer.appendChild(postEl);
-            });
-        }
-    </script>
-	
-   
-
-
-
-
-
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
+  <script src="firebase-config.js"></script>
+  <script>
+    const db = firebase.firestore();
+    const container = document.getElementById('blog-posts');
+    db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
+      container.innerHTML = '';
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        const post = document.createElement('div');
+        post.className = 'post';
+        post.innerHTML = `
+          <h2>${data.title}</h2>
+          <p><strong>By:</strong> ${data.author}</p>
+          ${data.image ? `<img src="${data.image}" style="max-width:100%;">` : ''}
+          <p>${data.content}</p>
+          <hr>
+        `;
+        container.appendChild(post);
+      });
+    });
+  </script>
 
 <br>
 
