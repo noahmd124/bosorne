@@ -1,95 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
+<head>
 
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet" />
 
-    <title>David James - Author</title>
-	
-	
+  <title>David James - Author</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Bootstrap core CSS -->
+  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="assets/css/fontawesome.css" />
+  <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css" />
+  <link rel="stylesheet" href="assets/css/owl.css" />
+  <link rel="stylesheet" href="assets/css/animate.css" />
+  <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
-    <link rel="stylesheet" href="assets/css/owl.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+  <style>
+    .abouth1 {
+      text-align: center;
+    }
 
+    h1 {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
 
+    .page-heading {
+      width: 100%;
+      height: 400px;
+      background-image: url('assets/images/cornwallimage3.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      margin-bottom: 60px;
+      position: relative;
+    }
 
-<style>
-		
-		.abouth1 {
-			text-align:center;
-		}
-		
-		
-		
-		
-		h1 {
-	  white-space: nowrap;
-	  overflow: hidden;
-	  text-overflow: ellipsis;
-	}
-	
-	 .page-heading {
-	  width: 100%;
-	  height: 400px;
-	  background-image: url('assets/images/cornwallimage3.jpg'); 
-	  background-size: cover;
-	  background-position: center;
-	  background-repeat: no-repeat;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  text-align: center;
-	  margin-bottom: 60px;
-	  position: relative;
-	}
+    .page-heading h3 {
+      font-size: 48px;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin: 0;
+      z-index: 2;
+    }
 
-	.page-heading h3 {
-	  font-size: 48px;
-	  font-weight: 900;
-	  text-transform: uppercase;
-	  color: #fff;
-	  margin: 0;
-	  z-index: 2;
-	}
-	
-	 #js-preloader {
-    display: none !important;
-  }
-	
-</style>
+    #js-preloader {
+      display: none !important;
+    }
 
+    /* NEW STYLES for blog posts */
+    #blog-posts {
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      padding: 0 1rem;
+    }
 
-  </head>
+    #blog-posts article {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      transition: box-shadow 0.3s ease;
+    }
+
+    #blog-posts article:hover {
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+    }
+
+    #blog-posts h2 {
+      color: #1a73e8;
+      margin-bottom: 0.5rem;
+    }
+
+    #blog-posts .author,
+    #blog-posts .date {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    #blog-posts img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    #blog-posts p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #333;
+      white-space: pre-wrap; /* preserve new lines */
+    }
+
+    #blog-posts p.no-posts {
+      text-align: center;
+      font-style: italic;
+      color: #888;
+      margin-top: 3rem;
+    }
+  </style>
+
+</head>
 
 <body>
-
-  
 
   <div class="sub-header">
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-8">
           <ul class="info">
-            
-			<p>Connect with me</p>
-			
+
+            <p>Connect with me</p>
+
           </ul>
         </div>
         <div class="col-lg-4 col-md-4">
           <ul class="social-links">
             <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-           
+
           </ul>
         </div>
       </div>
@@ -99,31 +141,30 @@
   <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky">
     <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <h1>David James - Author</h1>
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-                      <li><a href="books.html">How & Why</a></li>
-                      <li><a href="what-next.html">What Next</a></li>
-					   <li><a href="about-me.html">Author</a></li>
-                      <li><a href="reviews.html">Reviews</a></li>
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <a href="index.html" class="logo">
+              <h1>David James - Author</h1>
+            </a>
+            <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li><a href="books.html">How & Why</a></li>
+              <li><a href="what-next.html">What Next</a></li>
+              <li><a href="about-me.html">Author</a></li>
+              <li><a href="reviews.html">Reviews</a></li>
 
-                     
-                      <li><a href="https://amzn.eu/d/dYdwb4g" target="_blank"><i class="fa fa-shopping-bag"></i> Buy Now</a></li>
-                  </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
+              <li><a href="https://amzn.eu/d/dYdwb4g" target="_blank"><i class="fa fa-shopping-bag"></i> Buy Now</a></li>
+            </ul>
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
         </div>
+      </div>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
@@ -132,37 +173,43 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          
-		  <br>
-		  <br>
-		  <br>
-		  <br>
-		  
+
+          <br />
+          <br />
+          <br />
+          <br />
+
           <h3>Blog</h3>
-		  
-		  <br>
-		  <br>
-		  <br>
-		  <br>
-		  
-		  
+
+          <br />
+          <br />
+          <br />
+          <br />
+
         </div>
       </div>
     </div>
   </div>
 
-	
-	<div class="container">
-    <h1>Blog</h1>
-    <div id="blog-posts"></div>
+  <div class="container">
+    <h1 class="abouth1">Blog</h1>
+    <div id="blog-posts">Loading posts...</div>
   </div>
 
   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+    import {
+      initializeApp
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import {
+      getFirestore,
+      collection,
+      getDocs,
+      query,
+      orderBy
+    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
     const firebaseConfig = {
-      apiKey: "AIzaSyAHpKaDMVV7wrhKQYQUIC5Bj_awgwZgfqw",
+      apiKey: "AIzaSyAHpKaDMVV7wrhKQQUIC5Bj_awgwZgfqw",
       authDomain: "davidblog-1f7ea.firebaseapp.com",
       projectId: "davidblog-1f7ea",
       storageBucket: "davidblog-1f7ea.firebasestorage.app",
@@ -173,7 +220,7 @@
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
-    const postsContainer = document.getElementById("posts");
+    const postsContainer = document.getElementById("blog-posts");
 
     async function loadPosts() {
       const postsQuery = query(collection(db, "posts"), orderBy("date", "desc"));
@@ -181,7 +228,7 @@
       postsContainer.innerHTML = "";
 
       if (querySnapshot.empty) {
-        postsContainer.innerHTML = "<p>No posts yet.</p>";
+        postsContainer.innerHTML = "<p class='no-posts'>No posts yet.</p>";
         return;
       }
 
@@ -189,11 +236,15 @@
         const post = doc.data();
         const article = document.createElement("article");
 
+        const dateString = post.date && post.date.seconds ?
+          new Date(post.date.seconds * 1000).toLocaleString() :
+          "No date";
+
         article.innerHTML = `
           <h2>${post.title}</h2>
           <p class="author">By ${post.author}</p>
-          <p class="date">${new Date(post.date.seconds * 1000).toLocaleString()}</p>
-          ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image">` : ""}
+          <p class="date">${dateString}</p>
+          ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image" loading="lazy">` : ""}
           <p>${post.content}</p>
         `;
         postsContainer.appendChild(article);
@@ -201,28 +252,14 @@
     }
 
     loadPosts();
-
   </script>
-	
-<br>
 
- 
-       
-
-		</div>
-		
-		
-	
-
-
-		
-
+  <br />
 
   <footer class="footer-no-gap">
     <div class="container">
       <div class="col-lg-12">
-        <p>Copyright © 2025 David James - All rights reserved. 
-        
+        <p>Copyright © 2025 David James - All rights reserved.</p>
       </div>
     </div>
   </footer>
@@ -235,8 +272,6 @@
   <script src="assets/js/owl-carousel.js"></script>
   <script src="assets/js/counter.js"></script>
 
+</body>
 
-  </body>
 </html>
-
-
