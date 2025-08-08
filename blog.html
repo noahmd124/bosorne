@@ -157,30 +157,53 @@
     <div id="blog-posts"></div>
   </div>
 
-  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/10.5.0/firebase-firestore.js"></script>
-  <script src="firebase-config.js"></script>
-  <script>
-    const db = firebase.firestore();
-    const container = document.getElementById('blog-posts');
-    db.collection('posts').orderBy('timestamp', 'desc').onSnapshot(snapshot => {
-      container.innerHTML = '';
-      snapshot.forEach(doc => {
-        const data = doc.data();
-        const post = document.createElement('div');
-        post.className = 'post';
-        post.innerHTML = `
-          <h2>${data.title}</h2>
-          <p><strong>By:</strong> ${data.author}</p>
-          ${data.image ? `<img src="${data.image}" style="max-width:100%;">` : ''}
-          <p>${data.content}</p>
-          <hr>
-        `;
-        container.appendChild(post);
-      });
-    });
-  </script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, getDocs, query, orderBy } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
+    const firebaseConfig = {
+      apiKey: "AIzaSyAHpKaDMVV7wrhKQYQUIC5Bj_awgwZgfqw",
+      authDomain: "davidblog-1f7ea.firebaseapp.com",
+      projectId: "davidblog-1f7ea",
+      storageBucket: "davidblog-1f7ea.firebasestorage.app",
+      messagingSenderId: "349756213856",
+      appId: "1:349756213856:web:0607caf8b784ac7337d105",
+      measurementId: "G-X52H4JJGTG"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+    const postsContainer = document.getElementById("posts");
+
+    async function loadPosts() {
+      const postsQuery = query(collection(db, "posts"), orderBy("date", "desc"));
+      const querySnapshot = await getDocs(postsQuery);
+      postsContainer.innerHTML = "";
+
+      if (querySnapshot.empty) {
+        postsContainer.innerHTML = "<p>No posts yet.</p>";
+        return;
+      }
+
+      querySnapshot.forEach(doc => {
+        const post = doc.data();
+        const article = document.createElement("article");
+
+        article.innerHTML = `
+          <h2>${post.title}</h2>
+          <p class="author">By ${post.author}</p>
+          <p class="date">${new Date(post.date.seconds * 1000).toLocaleString()}</p>
+          ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image">` : ""}
+          <p>${post.content}</p>
+        `;
+        postsContainer.appendChild(article);
+      });
+    }
+
+    loadPosts();
+
+  </script>
+	
 <br>
 
  
