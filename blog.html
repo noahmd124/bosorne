@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <title>David James - Author</title>
+	
+	
+
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="assets/css/owl.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+
+
+<style>
+		
+		.abouth1 {
+			text-align:center;
+		}
+		
+		
+		
+		
+		h1 {
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	}
+	
+	 .page-heading {
+	  width: 100%;
+	  height: 400px;
+	  background-image: url('assets/images/cornwallimage3.jpg'); 
+	  background-size: cover;
+	  background-position: center;
+	  background-repeat: no-repeat;
+	  display: flex;
+	  align-items: center;
+	  justify-content: center;
+	  text-align: center;
+	  margin-bottom: 60px;
+	  position: relative;
+	}
+
+	.page-heading h3 {
+	  font-size: 48px;
+	  font-weight: 900;
+	  text-transform: uppercase;
+	  color: #fff;
+	  margin: 0;
+	  z-index: 2;
+	}
+	
+	 #js-preloader {
+    display: none !important;
+  }
+	
+</style>
+
+
+  </head>
+
+<body>
+
+  
+
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <ul class="info">
+            
+			<p>Connect with me</p>
+			
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul class="social-links">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+           
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <h1>David James - Author</h1>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+                      <li><a href="books.html">How & Why</a></li>
+                      <li><a href="what-next.html">What Next</a></li>
+					   <li><a href="about-me.html">Author</a></li>
+                      <li><a href="reviews.html">Reviews</a></li>
+
+                     
+                      <li><a href="https://amzn.eu/d/dYdwb4g" target="_blank"><i class="fa fa-shopping-bag"></i> Buy Now</a></li>
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="page-heading header-text">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          
+		  <br>
+		  <br>
+		  <br>
+		  <br>
+		  
+          <h3>Blog</h3>
+		  
+		  <br>
+		  <br>
+		  <br>
+		  <br>
+		  
+		  
+        </div>
+      </div>
+    </div>
+  </div>
+
+	
+	<header>
+        <h1>Latest Blog Posts</h1>
+        
+    </header>
+
+    <main id="blogContainer"></main>
+
+    <script src="script.js"></script>
+    <script>
+        // Check login state
+        if (localStorage.getItem("loggedIn") === "true") {
+            document.getElementById("newPostBtn").style.display = "inline-block";
+            document.getElementById("newPostBtn").onclick = function () {
+                window.location.href = "create.html";
+            };
+        }
+
+        // Load and display posts
+        const blogContainer = document.getElementById("blogContainer");
+        let posts = JSON.parse(localStorage.getItem("posts")) || [];
+
+        if (posts.length === 0) {
+            blogContainer.innerHTML = "<p>No posts yet. Check back soon!</p>";
+        } else {
+            posts.reverse().forEach(post => {
+                const postEl = document.createElement("article");
+                postEl.classList.add("post");
+
+                let imageHTML = post.image ? `<img src="${post.image}" alt="Post Image" class="post-image">` : "";
+                
+                postEl.innerHTML = `
+                    <h2>${post.title}</h2>
+                    <p class="author">By ${post.author}</p>
+                    ${imageHTML}
+                    <p>${post.content}</p>
+                    <hr>
+                `;
+                blogContainer.appendChild(postEl);
+            });
+        }
+    </script>
+	
+   
+
+
+
+
+
+
+<br>
+
+ 
+       
+
+		</div>
+		
+		
+	
+
+
+		
+
+
+  <footer class="footer-no-gap">
+    <div class="container">
+      <div class="col-lg-12">
+        <p>Copyright © 2025 David James - All rights reserved. 
+        
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+
+
+  </body>
+</html>
+
+
