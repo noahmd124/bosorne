@@ -278,13 +278,18 @@
           new Date(post.date.seconds * 1000).toLocaleString() :
           "No date";
 
-        article.innerHTML = `
-          <h2>${post.title}</h2>
-          <p class="author">By ${post.author}</p>
-          <p class="date">${dateString}</p>
-          ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image" loading="lazy">` : ""}
-          <p>${post.content}</p>
-        `;
+  
+    article.innerHTML = `
+  <h2>${post.title}</h2>
+  <p class="author">By ${post.author}</p>
+  <p class="date">${dateString}</p>
+  ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image" loading="lazy">` : ""}
+  <p>${post.content.substring(0, 200)}...</p>
+  <button class="read-more btn btn-primary">Read More</button>
+`;
+
+
+      
         postsContainer.appendChild(article);
       });
     }
