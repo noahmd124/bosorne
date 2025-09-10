@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    <title>David James Author</title>
+    <title>David James - Author</title>
 	
 	
 
@@ -42,7 +42,32 @@
 	}
 
 
-	
+	.author-blurb {
+    background: #000;
+    color: #fff;
+    padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset;
+  }
+
+  .author-blurb .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .author-blurb p {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  /* Optional: better contrast for long lines on large screens */
+  @media (min-width: 1000px) {
+    .author-blurb p { font-size: 1.05rem; }
+  }
 	
 	
 
@@ -85,7 +110,7 @@
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
                     <a href="index.html" class="logo">
-                        <h1>Bosorne Books</h1>
+                        <h1>David James - Author</h1>
                     </a>
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
@@ -95,6 +120,7 @@
                       <li><a href="what-next.html">What Next</a></li>
 					   <li><a href="about-me.html">Author</a></li>
                       <li><a href="reviews.html">Reviews</a></li>
+                       <li><a href="blog.html">Blog</a></li>
 
 					  
                      
@@ -123,6 +149,14 @@
 	  
 	  </div>
 	  </div>
+
+	<section class="author-blurb" role="region" aria-label="Author message">
+  <div class="container">
+    <p>
+      Becoming a self-published author at the ripe old age of 80, and, because I am no longer able to drive or get about to promote my work in person, this website, Facebook and word-of-mouth are the only way of communicating with as wide an audience as possible.
+    </p>
+  </div>
+</section>
   
   <div class="underbannerh">
   
@@ -195,6 +229,7 @@
 
   </body>
 </html>
+
 
 
 
