@@ -1,234 +1,284 @@
 <!DOCTYPE html>
 <html lang="en">
-
   <head>
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
 
     <title>David James - Author</title>
-	
-	
 
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="assets/css/fontawesome.css">
-	<link rel="stylesheet" href="assets/css/fontawesome.css">
-    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
-    <link rel="stylesheet" href="assets/css/animate.css">
-    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <link rel="stylesheet" href="assets/css/fontawesome.css" />
+    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css" />
+    <link rel="stylesheet" href="assets/css/animate.css" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
+    <style>
+      /* ---------- Header / Nav fixes ---------- */
+      /* make the nav area align items vertically and keep logo inline */
+      .header-area .main-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
 
+      .main-nav .logo {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
 
-<style>
+      .main-nav .logo h1 {
+        margin: 0;
+        padding: 0.25rem 0;
+        font-size: 1.25rem;
+        line-height: 1;
+        font-weight: 600;
+        white-space: nowrap; /* keep the title on one line when possible */
+      }
 
-	.underbannerh {
-  text-align: center;
-  margin: 2rem 0;
-}
+      /* nav items inline and wrap gracefully on small screens */
+      .main-nav .nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .main-nav .nav li {
+        display: inline-block;
+      }
+      .main-nav .nav li a {
+        display: inline-block;
+        padding: 0.35rem 0.5rem;
+      }
 
-/* Column padding (Bootstrap-style class) */
-.col-md-4 {
-  padding-left: 10px;
-  padding-right: 10px;
-}
+      /* ---------- Banner / main text ---------- */
+      .main-banner .header-text h2 {
+        font-size: clamp(1.2rem, 4vw, 2.2rem);
+        margin: 0;
+      }
 
-/* Responsive book cover image */
-.col-md-4 img {
-  width: 100%;
-  height: auto;         /* keeps aspect ratio */
-  max-height: 400px;    /* prevents it from being too tall */
-  display: block;
-  margin: 0 auto;       /* centers the image */
-  object-fit: contain;  /* keeps full cover visible inside the box */
-}
+      /* ---------- Author blurb (with requested <br> above/below in HTML) ---------- */
+      .author-blurb {
+        background: #000;
+        color: #fff; /* force text to always be white */
+        padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) inset;
+      }
+      .author-blurb .container {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .author-blurb p {
+        margin: 0;
+        color: #fff; /* ensure paragraph text stays white */
+        font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+        line-height: 1.6;
+        letter-spacing: 0.01em;
+      }
+      @media (min-width: 1000px) {
+        .author-blurb p {
+          font-size: 1.05rem;
+        }
+      }
 
-h1 {
-  font-size: clamp(1.8rem, 4vw, 2.5rem); /* responsive headline */
-  margin-bottom: 1rem;
-  white-space: normal;  /* allow text to wrap */
-  overflow: visible;
-  text-overflow: unset;
-  text-align: center;
-}
+      /* ---------- Underbanner / About the book ---------- */
+      .underbannerh {
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+      .underbannerh h1 {
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        margin: 0;
+      }
 
-/* Author blurb section */
-.author-blurb {
-  background: #000;
-  color: #fff; /* force text to always be white */
-  padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset;
-}
+      /* ensure columns stack on mobile and image centers */
+      .underbanner .row {
+        align-items: center;
+      }
+      .underbanner .col-12.col-md-4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-.author-blurb .container {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+      /* Prevent the image from being squashed; keep natural aspect ratio */
+      .underbanner img {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        /* set a gentle maximum height so it doesn't grow massive on very wide screens */
+        max-height: 600px;
+        margin: 0 auto;
+      }
 
-.author-blurb p {
-  margin: 0;
-  color: #fff; /* ensure paragraph text stays white */
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-}
+      /* text visible and readable; black-ish text for book text */
+      .underbanner .col-12.col-md-8 p {
+        color: #222;
+        font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+      }
 
-@media (min-width: 1000px) {
-  .author-blurb p {
-    font-size: 1.05rem;
-  }
-}
+      /* ---------- Footer ---------- */
+      footer {
+        background: transparent;
+        padding: 1.5rem 0;
+      }
+      footer .container {
+        max-width: 980px;
+      }
+      /* center on small screens; left-align on medium+ */
+      footer .footer-col {
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        footer .footer-col {
+          text-align: left;
+        }
+      }
+      footer p {
+        margin: 0.2rem 0;
+        color: #222;
+      }
 
-
-
-  
-
-	
-</style>
-
-
+      /* small visual polish */
+      .rounded {
+        border-radius: 6px;
+      }
+      .shadow-sm {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
+    </style>
   </head>
 
-<body>
-
- 
-
-  <div class="sub-header">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-8 col-md-8">
-          <ul class="info">
-            <p>Connect with me</p>
-            
-          </ul>
-        </div>
-        <div class="col-lg-4 col-md-4">
-          <ul class="social-links">
-            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-            
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky">
-    <div class="container">
+  <body>
+    <div class="sub-header">
+      <div class="container">
         <div class="row">
-            <div class="col-12">
-                <nav class="main-nav">
-                    <!-- ***** Logo Start ***** -->
-                    <a href="index.html" class="logo">
-                        <h1>David James - Author</h1>
-                    </a>
-                    <!-- ***** Logo End ***** -->
-                    <!-- ***** Menu Start ***** -->
-                    <ul class="nav">
-					
-                      <li><a href="books.html">How & Why</a></li>
-                      <li><a href="what-next.html">What Next</a></li>
-					   <li><a href="about-me.html">Author</a></li>
-                      <li><a href="reviews.html">Reviews</a></li>
-                       <li><a href="blog.html">Blog</a></li>
-
-					  
-                     
-                     <li><a href="https://amzn.eu/d/dYdwb4g" target="_blank"><i class="fa fa-shopping-bag"></i> Buy Now</a></li>
-
-                  </ul>   
-                    <a class='menu-trigger'>
-                        <span>Menu</span>
-                    </a>
-                    <!-- ***** Menu End ***** -->
-                </nav>
-            </div>
-        </div>
-    </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
-
-  <div class="main-banner">
-    <div class="owl-carousel owl-banner">
-      <div class="item item-1">
-        <div class="header-text">
-          <span class="category">Buy at <em>Amazon & Waterstones</em></span>
-          <h2>Learn more about the flower in winter series</h2>
+          <div class="col-lg-8 col-md-8">
+            <ul class="info">
+              <p>Connect with me</p>
+            </ul>
+          </div>
+          <div class="col-lg-4 col-md-4">
+            <ul class="social-links">
+              <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            </ul>
+          </div>
         </div>
       </div>
-	  
-	  </div>
-	  </div>
+    </div>
 
-	<section class="author-blurb" role="region" aria-label="Author message">
-  <div class="container">
-    <p>
-      Becoming a self-published author at the ripe old age of 80, and, because I am no longer able to drive or get about to promote my work in person, this website, Facebook and word-of-mouth are the only way of communicating with as wide an audience as possible.
-    </p>
-  </div>
-</section>
-
-<div class="underbannerh">
-  <h1>About the book</h1>
-</div>
-
-<div class="underbanner">
-  <div class="container">
-    <div class="row align-items-center">
-      <div class="col-12 col-md-4 mb-4 mb-md-0">
-        <img src="assets/images/davidbook.jpg" 
-             class="img-fluid rounded shadow-sm" 
-             alt="Book cover: A Flower in Winter">
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+      <div class="container">
+        <div class="row">
+          <div class="col-12">
+            <nav class="main-nav">
+              <!-- ***** Logo Start ***** -->
+              <a href="index.html" class="logo">
+                <h1>David James - Author</h1>
+              </a>
+              <!-- ***** Menu Start ***** -->
+              <ul class="nav">
+                <li><a href="books.html">How &amp; Why</a></li>
+                <li><a href="what-next.html">What Next</a></li>
+                <li><a href="about-me.html">Author</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="https://amzn.eu/d/dYdwb4g" target="_blank"><i class="fa fa-shopping-bag"></i> Buy Now</a></li>
+              </ul>
+              <a class="menu-trigger">
+                <span>Menu</span>
+              </a>
+            </nav>
+          </div>
+        </div>
       </div>
-      <div class="col-12 col-md-8">
-        <p>
-          Set against the backdrop of World War II, <em>A Flower in Winter</em> follows the journey of 13-year-old Samuel De Souza...
-        </p>
-        <p>
-          Samuel's life takes a turn when he falls in love with Annie...
-        </p>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="main-banner">
+      <div class="owl-carousel owl-banner">
+        <div class="item item-1">
+          <div class="header-text">
+            <span class="category">Buy at <em>Amazon &amp; Waterstones</em></span>
+            <h2>Learn more about the flower in winter series</h2>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
 
+    <!-- user requested <br> before author-blurb -->
+    <br />
 
-<footer>
-  <div class="container">
-    <div class="col-lg-8">
-      <p>Copyright © 2025 David James, All rights reserved.</p>
-      <p>Website by <a href="https://www.arthurmctriangle.com">Noah MD</a></p>
+    <section class="author-blurb" role="region" aria-label="Author message">
+      <div class="container">
+        <p>
+          Becoming a self-published author at the ripe old age of 80, and, because I am no longer able to drive or get about to promote my work in person, this website, Facebook and word-of-mouth are the only way of communicating with as wide an audience as possible.
+        </p>
+      </div>
+    </section>
+
+    <!-- user requested <br> after author-blurb -->
+    <br />
+
+    <div class="underbannerh">
+      <h1>About the book</h1>
     </div>
-  </div>
-</footer>
 
-  <!-- Scripts -->
-  <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
-  <script src="assets/js/owl-carousel.js"></script>
-  <script src="assets/js/counter.js"></script>
-  
+    <div class="underbanner">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-12 col-md-4 mb-4 mb-md-0">
+            <img src="assets/images/davidbook.jpg" class="img-fluid rounded shadow-sm" alt="Book cover: A Flower in Winter" />
+          </div>
 
+          <div class="col-12 col-md-8">
+            <p>
+              Set against the backdrop of World War II, <em>A Flower in Winter</em> follows the journey of 13-year-old Samuel De Souza. As Germany invades Holland in May 1940, Samuel, a Jewish boy, is given a forged passport and smuggled out of the country under the care of two elderly strangers. Arriving in England, he finds solace and guidance from Jannie, one of his caretakers who becomes a mentor and father figure.
+            </p>
+
+            <p>
+              Samuel's life takes a turn when he falls in love with Annie. However, driven by the atrocities happening in his homeland and the personal loss he experiences, he lies about his age to enlist in the Royal Navy, determined to stand against the oppressive regime threatening his people. The narrative delves into themes of love, honor, duty, and bravery, drawing inspiration from real events. The title is derived from a Portuguese proverb: "The love of an old man is like a flower in winter."
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <!-- footer-col centers on small screens, left-aligns on medium+ -->
+          <div class="col-12 col-md-8 footer-col">
+            <p>Copyright © 2025 David James, All rights reserved.</p>
+            <p>Website by <a href="https://www.arthurmctriangle.com">Noah MD</a></p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    <script src="assets/js/counter.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
