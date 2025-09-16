@@ -27,49 +27,61 @@
 <style>
 
 	.underbannerh {
-		text-align: center;
-	}
-	
-	col-md-4 {
-		padding-left: 10px;
-		padding-right: 10px;
-	}
+  text-align: center;
+  margin: 2rem 0;
+}
 
-		h1 {
-	  white-space: nowrap;
-	  overflow: hidden;
-	  text-overflow: ellipsis;
-	}
+.col-md-4 {
+  padding-left: 10px;
+  padding-right: 10px;
+}
 
+/* Make the book cover responsive */
+.col-md-4 img {
+  max-width: 100%;
+  height: auto;         /* keeps aspect ratio */
+  max-height: 400px;    /* stops it getting too tall */
+  display: block;
+  margin: 0 auto;       /* center image in column */
+}
 
-	.author-blurb {
-    background: #000;
-    color: #FFFFFF;
-    padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset;
-  }
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  white-space: normal; /* let text wrap */
+  overflow: visible;
+  text-overflow: unset;
+}
 
-  .author-blurb .container {
-    max-width: 980px;
-    margin: 0 auto;
-    padding: 0 1rem;
-  }
+.author-blurb {
+  background: #000;
+  color: #fff; /* force text to always be white */
+  padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
+  text-align: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset;
+}
 
+.author-blurb .container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.author-blurb p {
+  margin: 0;
+  color: #fff; /* ensure paragraph text stays white */
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+@media (min-width: 1000px) {
   .author-blurb p {
-    margin: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-    line-height: 1.6;
-    letter-spacing: 0.01em;
+    font-size: 1.05rem;
   }
+}
 
-  /* Optional: better contrast for long lines on large screens */
-  @media (min-width: 1000px) {
-    .author-blurb p { font-size: 1.05rem; }
-  }
-	
-	
 
   
 
@@ -203,6 +215,7 @@
 
   </body>
 </html>
+
 
 
 
