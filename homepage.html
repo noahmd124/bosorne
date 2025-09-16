@@ -31,28 +31,32 @@
   margin: 2rem 0;
 }
 
+/* Column padding (Bootstrap-style class) */
 .col-md-4 {
   padding-left: 10px;
   padding-right: 10px;
 }
 
-/* Make the book cover responsive */
+/* Responsive book cover image */
 .col-md-4 img {
-  max-width: 100%;
+  width: 100%;
   height: auto;         /* keeps aspect ratio */
-  max-height: 400px;    /* stops it getting too tall */
+  max-height: 400px;    /* prevents it from being too tall */
   display: block;
-  margin: 0 auto;       /* center image in column */
+  margin: 0 auto;       /* centers the image */
+  object-fit: contain;  /* keeps full cover visible inside the box */
 }
 
 h1 {
-  font-size: 2rem;
+  font-size: clamp(1.8rem, 4vw, 2.5rem); /* responsive headline */
   margin-bottom: 1rem;
-  white-space: normal; /* let text wrap */
+  white-space: normal;  /* allow text to wrap */
   overflow: visible;
   text-overflow: unset;
+  text-align: center;
 }
 
+/* Author blurb section */
 .author-blurb {
   background: #000;
   color: #fff; /* force text to always be white */
@@ -70,7 +74,7 @@ h1 {
 .author-blurb p {
   margin: 0;
   color: #fff; /* ensure paragraph text stays white */
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   font-size: clamp(0.95rem, 1.6vw, 1.1rem);
   line-height: 1.6;
   letter-spacing: 0.01em;
@@ -81,6 +85,7 @@ h1 {
     font-size: 1.05rem;
   }
 }
+
 
 
   
@@ -215,6 +220,7 @@ h1 {
 
   </body>
 </html>
+
 
 
 
