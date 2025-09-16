@@ -17,150 +17,151 @@
     <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
 
     <style>
-     /* ---------- Header / Nav fixes ---------- */
-.header-area .main-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-}
+      /* ---------- Header / Nav fixes ---------- */
+      /* make the nav area align items vertically and keep logo inline */
+      .header-area .main-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+      }
 
-.main-nav .logo {
-  display: flex;
-  align-items: center;
-  margin: 0;
-  padding: 0;
-}
+      .main-nav .logo {
+        display: flex;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+      }
 
-.main-nav .logo h1 {
-  margin: 0;
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  line-height: 1.2;
-  font-weight: 700;
-  white-space: nowrap;
-}
+      .main-nav .logo h1 {
+        margin: 0;
+        padding: 0.25rem 0;
+        font-size: 1.25rem;
+        line-height: 1;
+        font-weight: 600;
+        white-space: nowrap; /* keep the title on one line when possible */
+      }
 
-.main-nav .nav {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 0.8rem;
-  flex-wrap: wrap;
-  align-items: center;
-}
+      /* nav items inline and wrap gracefully on small screens */
+      .main-nav .nav {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        gap: 0.8rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+      .main-nav .nav li {
+        display: inline-block;
+      }
+      .main-nav .nav li a {
+        display: inline-block;
+        padding: 0.35rem 0.5rem;
+      }
 
-.main-nav .nav li a {
-  display: inline-block;
-  padding: 0.35rem 0.5rem;
-}
+      /* ---------- Banner / main text ---------- */
+      .main-banner .header-text h2 {
+        font-size: clamp(1.2rem, 4vw, 2.2rem);
+        margin: 0;
+      }
 
-/* Fix Buy Now icon position */
-.main-nav .fa-shopping-bag {
-  margin-right: 0.3rem;
-  vertical-align: middle;
-}
+      /* ---------- Author blurb (with requested <br> above/below in HTML) ---------- */
+      .author-blurb {
+        background: #000;
+        color: #fff; /* force text to always be white */
+        padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) inset;
+      }
+      .author-blurb .container {
+        max-width: 980px;
+        margin: 0 auto;
+        padding: 0 1rem;
+      }
+      .author-blurb p {
+        margin: 0;
+        color: #fff; /* ensure paragraph text stays white */
+        font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+        line-height: 1.6;
+        letter-spacing: 0.01em;
+      }
+      @media (min-width: 1000px) {
+        .author-blurb p {
+          font-size: 1.05rem;
+        }
+      }
 
-/* ---------- Banner / main text ---------- */
-.main-banner .header-text {
-  text-align: center;
-}
+      /* ---------- Underbanner / About the book ---------- */
+      .underbannerh {
+        text-align: center;
+        margin: 1.5rem 0;
+      }
+      .underbannerh h1 {
+        font-size: clamp(1.6rem, 4vw, 2.4rem);
+        margin: 0;
+      }
 
-.main-banner .header-text h2 {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
-  line-height: 1.2;
-  margin: 0.5rem 0 0;
-}
+      /* ensure columns stack on mobile and image centers */
+      .underbanner .row {
+        align-items: center;
+      }
+      .underbanner .col-12.col-md-4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-/* ---------- Author blurb ---------- */
-.author-blurb {
-  background: #000;
-  color: #fff;
-  padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25) inset;
-}
+      /* Prevent the image from being squashed; keep natural aspect ratio */
+      .underbanner img {
+        display: block;
+        width: auto;
+        max-width: 100%;
+        height: auto;
+        /* set a gentle maximum height so it doesn't grow massive on very wide screens */
+        max-height: 600px;
+        margin: 0 auto;
+      }
 
-.author-blurb .container {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+      /* text visible and readable; black-ish text for book text */
+      .underbanner .col-12.col-md-8 p {
+        color: #222;
+        font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        font-size: clamp(0.95rem, 1.8vw, 1.05rem);
+        line-height: 1.6;
+        margin-bottom: 0.8rem;
+      }
 
-.author-blurb p {
-  margin: 0;
-  color: #fff;
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-  line-height: 1.6;
-}
+      /* ---------- Footer ---------- */
+      footer {
+        background: transparent;
+        padding: 1.5rem 0;
+      }
+      footer .container {
+        max-width: 980px;
+      }
+      /* center on small screens; left-align on medium+ */
+      footer .footer-col {
+        text-align: center;
+      }
+      @media (min-width: 768px) {
+        footer .footer-col {
+          text-align: left;
+        }
+      }
+      footer p {
+        margin: 0.2rem 0;
+        color: #222;
+      }
 
-/* ---------- Underbanner / About the book ---------- */
-.underbannerh {
-  text-align: center;
-  margin: 2rem 0 1rem;
-}
-
-.underbannerh h1 {
-  font-size: clamp(1.6rem, 4vw, 2.2rem);
-  margin: 0;
-}
-
-.underbanner .row {
-  align-items: center;
-  gap: 1rem;
-}
-
-.underbanner .col-12.col-md-4 {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.underbanner img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  max-height: 500px;
-  object-fit: contain;
-  border-radius: 6px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-}
-
-.underbanner .col-12.col-md-8 p {
-  color: #222;
-  font-family: "Poppins", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  font-size: clamp(0.95rem, 1.4vw, 1rem);
-  line-height: 1.6;
-  margin-bottom: 0.8rem;
-}
-
-/* ---------- Footer ---------- */
-footer {
-  background: #000;
-  color: #fff;
-  padding: 1.5rem 0;
-}
-
-footer .container {
-  max-width: 980px;
-}
-
-footer .footer-col {
-  text-align: center;
-}
-
-footer p {
-  margin: 0.2rem 0;
-  color: #fff;
-}
-
-@media (min-width: 768px) {
-  footer .footer-col {
-    text-align: left;
-  }
-}
-
+      /* small visual polish */
+      .rounded {
+        border-radius: 6px;
+      }
+      .shadow-sm {
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      }
     </style>
   </head>
 
@@ -249,35 +250,28 @@ footer p {
 
           <div class="col-12 col-md-8">
             <p>
-              In May 1940, as Germany invades Holland, 13-year-old Samuel De Souza is thrust into a perilous journey. With a forged passport and under the care of two elderly strangers, he is smuggled out of his homeland, narrowly escaping the Nazis.
+              Set against the backdrop of World War II, <em>A Flower in Winter</em> follows the journey of 13-year-old Samuel De Souza. As Germany invades Holland in May 1940, Samuel, a Jewish boy, is given a forged passport and smuggled out of the country under the care of two elderly strangers. Arriving in England, he finds solace and guidance from Jannie, one of his caretakers who becomes a mentor and father figure.
+            </p>
 
-Arriving in England, Samuel finds refuge and a sense of belonging. Among newfound friends, he discovers the unwavering guidance of Jannie, one of the elderly men who becomes not only a mentor but a father figure. Life seems to offer him hope—especially when he meets and falls in love with Annie.
-
-But tragedy strikes. Enraged by the devastation in his homeland, the suffering of his people, and the death of Annie’s mother in a German air raid, Samuel takes a bold step: he lies about his age to join the Royal Navy, determined to fight against the regime threatening everything he holds dear.
-
-Through the trials of war, Samuel remains in contact with Jannie, realizing the profound power of love, courage, and human connection that transcends generations and cultures. From quiet moments of friendship to the storm of battle, he stands resolute against oppression, guided by honour and bravery.
-
-A story inspired by real events, A Flower in Winter explores love, duty, and the enduring strength of the human spirit.
-
-"The love of an old man is like a flower in winter." — Portuguese proverb
-
-           
+            <p>
+              Samuel's life takes a turn when he falls in love with Annie. However, driven by the atrocities happening in his homeland and the personal loss he experiences, he lies about his age to enlist in the Royal Navy, determined to stand against the oppressive regime threatening his people. The narrative delves into themes of love, honor, duty, and bravery, drawing inspiration from real events. The title is derived from a Portuguese proverb: "The love of an old man is like a flower in winter."
+            </p>
           </div>
         </div>
       </div>
     </div>
 
     <footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-12 col-md-8 footer-col">
-        <p>Copyright © 2025 David James, All rights reserved.</p>
-        <p>Website by <a href="https://www.arthurmctriangle.com">Noah MD</a></p>
+      <div class="container">
+        <div class="row">
+          <!-- footer-col centers on small screens, left-aligns on medium+ -->
+          <div class="col-12 col-md-8 footer-col">
+            <p>Copyright © 2025 David James, All rights reserved.</p>
+            <p>Website by <a href="https://www.arthurmctriangle.com">Noah MD</a></p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</footer>
-
+    </footer>
 
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
@@ -288,5 +282,3 @@ A story inspired by real events, A Flower in Winter explores love, duty, and the
     <script src="assets/js/counter.js"></script>
   </body>
 </html>
-
-
