@@ -27,61 +27,49 @@
 <style>
 
 	.underbannerh {
-  text-align: center;
-  margin: 2rem 0;
-}
+		text-align: center;
+	}
+	
+	col-md-4 {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
 
-.col-md-4 {
-  padding-left: 10px;
-  padding-right: 10px;
-}
+		h1 {
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	}
 
-/* Make the book cover responsive */
-.col-md-4 img {
-  max-width: 100%;
-  height: auto;         /* keeps aspect ratio */
-  max-height: 400px;    /* stops it getting too tall */
-  display: block;
-  margin: 0 auto;       /* center image in column */
-}
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-  white-space: normal; /* let text wrap */
-  overflow: visible;
-  text-overflow: unset;
-}
-
-.author-blurb {
-  background: #000;
-  color: #fff; /* force text to always be white */
-  padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
-  text-align: center;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset;
-}
-
-.author-blurb .container {
-  max-width: 980px;
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-
-.author-blurb p {
-  margin: 0;
-  color: #fff; /* ensure paragraph text stays white */
-  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-  line-height: 1.6;
-  letter-spacing: 0.01em;
-}
-
-@media (min-width: 1000px) {
-  .author-blurb p {
-    font-size: 1.05rem;
+	.author-blurb {
+    background: #000;
+    color: #FFFFFF;
+    padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset;
   }
-}
 
+  .author-blurb .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  .author-blurb p {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+    line-height: 1.6;
+    letter-spacing: 0.01em;
+  }
+
+  /* Optional: better contrast for long lines on large screens */
+  @media (min-width: 1000px) {
+    .author-blurb p { font-size: 1.05rem; }
+  }
+	
+	
 
   
 
@@ -127,7 +115,7 @@ h1 {
                     <!-- ***** Logo End ***** -->
                     <!-- ***** Menu Start ***** -->
                     <ul class="nav">
-					
+					<li><a href="blog.html">Blog</a></li>
                       <li><a href="books.html">How & Why</a></li>
                       <li><a href="what-next.html">What Next</a></li>
 					   <li><a href="about-me.html">Author</a></li>
@@ -164,45 +152,73 @@ h1 {
 
 	<section class="author-blurb" role="region" aria-label="Author message">
   <div class="container">
+	  <br>
     <p>
       Becoming a self-published author at the ripe old age of 80, and, because I am no longer able to drive or get about to promote my work in person, this website, Facebook and word-of-mouth are the only way of communicating with as wide an audience as possible.
     </p>
+  </br>
   </div>
 </section>
-
-<div class="underbannerh">
+  
+  <div class="underbannerh">
+  
+  <br>
+  
+  <br>
+  
   <h1>About the book</h1>
-</div>
-
-<div class="underbanner">
+  
+  <br>
+  
+  </div>
+  
+  <div class="underbanner">
+  
   <div class="container">
-    <div class="row align-items-center">
-      <div class="col-md-4">
-        <img src="assets/images/davidbook.jpg" 
-     class="img-fluid" 
-     alt="Book cover: A Flower in Winter">
+  <div class="row align-items-center">
+    <div class="col-md-4">
+      <img src="assets/images/davidbook.jpg" class="img-fluid" alt="Image" style="width: 300px; height: 400px; auto;">
+    </div>
+    <div class="col-md-8">
+	
+	
+	
+	
+	<p>Set against the backdrop of World War II, "A Flower in Winter" follows the journey of 13-year-old Samuel De Souza. As Germany invades Holland in May 1940, Samuel, a Jewish boy, is given a 
+	forged passport and smuggled out of the country under the care of two elderly strangers. Arriving in England, he finds solace and guidance from Jannie, one of his caretakers who becomes a mentor and father figure.
+	Samuel's life takes a turn when he falls in love with Annie. However, driven by the atrocities happening in his homeland and the personal loss he experiences, he lies about his age to enlist in the Royal Navy, determined to stand against the oppressive regime threatening his people. 
+	The narrative delves into themes of love, honor, duty, and bravery, drawing inspiration from real events. The title is derived from a Portuguese proverb: "The love of an old man is like a flower in winter."</p>
+	
+	
+	</div>
+	</div>
+	</div>
+	
+	</div>
+	
+	</div>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	
+	
+	
 
-      </div>
-      <div class="col-md-8">
-        <p>
-          Set against the backdrop of World War II, <em>A Flower in Winter</em> follows the journey of 13-year-old Samuel De Souza. As Germany invades Holland in May 1940, Samuel, a Jewish boy, is given a forged passport and smuggled out of the country under the care of two elderly strangers. Arriving in England, he finds solace and guidance from Jannie, one of his caretakers who becomes a mentor and father figure.
-        </p>
-        <p>
-          Samuel's life takes a turn when he falls in love with Annie. However, driven by the atrocities happening in his homeland and the personal loss he experiences, he lies about his age to enlist in the Royal Navy, determined to stand against the oppressive regime threatening his people. The narrative delves into themes of love, honor, duty, and bravery, drawing inspiration from real events. The title is derived from a Portuguese proverb: "The love of an old man is like a flower in winter."
-        </p>
+	
+
+  <footer>
+    <div class="container">
+      <div class="col-lg-8">
+        <p>Copyright © 2025 David James, All rights reserved.</p>
+		<br>
+		<p>Website by <a href="https://www.arthurmctriangle.com">Noah MD</a> </p>
+     
       </div>
     </div>
-  </div>
-</div>
-
-<footer>
-  <div class="container">
-    <div class="col-lg-8">
-      <p>Copyright © 2025 David James, All rights reserved.</p>
-      <p>Website by <a href="https://www.arthurmctriangle.com">Noah MD</a></p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
   <!-- Scripts -->
   <!-- Bootstrap core JavaScript -->
@@ -215,9 +231,6 @@ h1 {
 
   </body>
 </html>
-
-
-
 
 
 
