@@ -262,7 +262,7 @@
     const postsContainer = document.getElementById("blog-posts");
 
     async function loadPosts() {
-      const postsQuery = query(collection(db, "posts"), orderBy("date", "desc"));
+     const postsQuery = query(collection(db, "posts"), orderBy("createdAt", "desc"));
       const querySnapshot = await getDocs(postsQuery);
       postsContainer.innerHTML = "";
 
@@ -275,9 +275,10 @@
         const post = doc.data();
         const article = document.createElement("article");
 
-        const dateString = post.date && post.date.seconds ?
-          new Date(post.date.seconds * 1000).toLocaleString() :
-          "No date";
+        const dateString = post.createdAt && post.createdAt.seconds ?
+  new Date(post.createdAt.seconds * 1000).toLocaleString() :
+  "No date";
+
 
   
     article.innerHTML = `
