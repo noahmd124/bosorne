@@ -361,6 +361,14 @@ async function loadPosts() {
   });
 }
 
+    try {
+  const querySnapshot = await getDocs(postsQuery);
+  ...
+} catch (error) {
+  postsContainer.innerHTML = `<p class="no-posts">Failed to load posts. Please try again later.</p>`;
+  console.error(error);
+}
+
     
   </script>
 
