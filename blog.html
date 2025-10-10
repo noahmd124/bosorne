@@ -235,34 +235,35 @@
     <div id="blog-posts">Loading posts...</div>
   </div>
 
-  <script type="module">
-    import {
-      initializeApp
-    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
-    import {
-      getFirestore,
-      collection,
-      getDocs,
-      query,
-      orderBy
-    } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+ 
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import {
+    getFirestore,
+    collection,
+    getDocs,
+    query,
+    orderBy
+  } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-    const firebaseConfig = {
-      apiKey: "AIzaSyAHpKaDMVV7wrhKQQUIC5Bj_awgwZgfqw",
-      authDomain: "davidblog-1f7ea.firebaseapp.com",
-      projectId: "davidblog-1f7ea",
-      storageBucket: "davidblog-1f7ea.firebasestorage.app",
-      messagingSenderId: "349756213856",
-      appId: "1:349756213856:web:0607caf8b784ac7337d105",
-      measurementId: "G-X52H4JJGTG"
-    };
+  const firebaseConfig = {
+    apiKey: "AIzaSyAHpKaDMVV7wrhKQQUIC5Bj_awgwZgfqw",
+    authDomain: "davidblog-1f7ea.firebaseapp.com",
+    projectId: "davidblog-1f7ea",
+    storageBucket: "davidblog-1f7ea.firebasestorage.app",
+    messagingSenderId: "349756213856",
+    appId: "1:349756213856:web:0607caf8b784ac7337d105",
+    measurementId: "G-X52H4JJGTG"
+  };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-    const postsContainer = document.getElementById("blog-posts");
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+  const postsContainer = document.getElementById("blog-posts");
 
-    async function loadPosts() {
-     const postsQuery = query(collection(db, "posts"), orderBy("createdAt", "desc"));
+  // Load posts from Firestore
+  async function loadPosts() {
+    try {
+      const postsQuery = query(collection(db, "posts"), orderBy("createdAt", "desc"));
       const querySnapshot = await getDocs(postsQuery);
       postsContainer.innerHTML = "";
 
@@ -275,105 +276,61 @@
         const post = doc.data();
         const article = document.createElement("article");
 
-        const dateString = post.createdAt && post.createdAt.seconds ?
-  new Date(post.createdAt.seconds * 1000).toLocaleString() :
-  "No date";
+        const dateString = post.createdAt && post.createdAt.seconds
+          ? new Date(post.createdAt.seconds * 1000).toLocaleString()
+          : "No date";
 
+        article.innerHTML = `
+          <h2>${post.title}</h2>
+          <p class="author">By ${post.author}</p>
+          <p class="date">${dateString}</p>
+          ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image" loading="lazy">` : ""}
+          <p>${post.content.substring(0, 200)}...</p>
+          <button class="read-more btn btn-primary">Read More</button>
+        `;
 
-  
-    article.innerHTML = `
-  <h2>${post.title}</h2>
-  <p class="author">By ${post.author}</p>
-  <p class="date">${dateString}</p>
-  ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image" loading="lazy">` : ""}
-  <p>${post.content.substring(0, 200)}...</p>
-  <button class="read-more btn btn-primary">Read More</button>
-`;
+        article.querySelector(".read-more").addEventListener("click", () => {
+          openModal(`
+            <h2>${post.title}</h2>
+            <p class="author">By ${post.author}</p>
+            <p class="date">${dateString}</p>
+            ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image" loading="lazy">` : ""}
+            <p>${post.content}</p>
+          `);
+        });
 
-
-      
         postsContainer.appendChild(article);
       });
+    } catch (error) {
+      postsContainer.innerHTML = `<p class="no-posts">⚠️ Failed to load posts. Please try again later.</p>`;
+      console.error(error);
     }
-
-    loadPosts();
-
-    // Modal element
-    s
-const modal = document.getElementById("postModal");
-const modalBody = document.getElementById("modalBody");
-const modalClose = document.getElementById("modalClose");
-
-function openModal(content) {
-  modalBody.innerHTML = content;
-  modal.style.display = "flex";
-}
-
-function closeModal() {
-  modal.style.display = "none";
-}
-
-modalClose.addEventListener("click", closeModal);
-window.addEventListener("click", (e) => {
-  if (e.target === modal) closeModal();
-});
-
-// Attach button click events after posts load
-async function loadPosts() {
-  const postsQuery = query(collection(db, "posts"), orderBy("date", "desc"));
-  const querySnapshot = await getDocs(postsQuery);
-  postsContainer.innerHTML = "";
-
-  if (querySnapshot.empty) {
-    postsContainer.innerHTML = "<p class='no-posts'>No posts yet.</p>";
-    return;
   }
 
-  querySnapshot.forEach(doc => {
-    const post = doc.data();
-    const article = document.createElement("article");
+  // Modal setup
+  const modal = document.getElementById("postModal");
+  const modalBody = document.getElementById("modalBody");
+  const modalClose = document.getElementById("modalClose");
 
-    const dateString = post.date && post.date.seconds ?
-      new Date(post.date.seconds * 1000).toLocaleString() :
-      "No date";
+  function openModal(content) {
+    modalBody.innerHTML = content;
+    modal.style.display = "flex";
+  }
 
-    article.innerHTML = `
-      <h2>${post.title}</h2>
-      <p class="author">By ${post.author}</p>
-      <p class="date">${dateString}</p>
-      ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image" loading="lazy">` : ""}
-      <p>${post.content.substring(0, 200)}...</p>
-      <button class="read-more btn btn-primary">Read More</button>
-    `;
+  function closeModal() {
+    modal.style.display = "none";
+  }
 
-    // Add button functionality
-    article.querySelector(".read-more").addEventListener("click", () => {
-      const fullContent = `
-        <h2>${post.title}</h2>
-        <p class="author">By ${post.author}</p>
-        <p class="date">${dateString}</p>
-        ${post.imageUrl ? `<img src="${post.imageUrl}" alt="Post image" loading="lazy">` : ""}
-        <p>${post.content}</p>
-      `;
-      openModal(fullContent);
-    });
-
-    postsContainer.appendChild(article);
+  modalClose.addEventListener("click", closeModal);
+  window.addEventListener("click", (e) => {
+    if (e.target === modal) closeModal();
   });
-}
 
-    try {
-  const querySnapshot = await getDocs(postsQuery);
-  ...
-} catch (error) {
-  postsContainer.innerHTML = `<p class="no-posts">Failed to load posts. Please try again later.</p>`;
-  console.error(error);
-}
+  // Run on load
+  loadPosts();
+</script>
 
-    
-  </script>
-
-  <br />
+ 
 
   <footer class="footer-no-gap">
     <div class="container">
