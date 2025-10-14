@@ -42,28 +42,28 @@
 	}
 
 
-	.author-blurb {
-    background: #000;
-    color: #FFFFFF;
-    padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
-    text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.25) inset;
-  }
-
   .author-blurb .container {
     max-width: 980px;
     margin: 0 auto;
     padding: 0 1rem;
   }
 
-  .author-blurb p {
-    margin: 0;
-    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    font-size: clamp(0.95rem, 1.6vw, 1.1rem);
-    line-height: 1.6;
-    letter-spacing: 0.01em;
-  }
-
+	.author-blurb p {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+	
+  .author-blurb {
+  background: #000; /* black background */
+  color: #fff; /* white text */
+  padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
+  text-align: center;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+	
   /* Optional: better contrast for long lines on large screens */
   @media (min-width: 1000px) {
     .author-blurb p { font-size: 1.05rem; }
@@ -231,6 +231,7 @@
 
   </body>
 </html>
+
 
 
 
