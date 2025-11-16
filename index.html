@@ -1,133 +1,248 @@
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Bosorne Books</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f3f4f6;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 100vh;
-    }
 
-    .container {
-      background: white;
-      padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      text-align: center;
-      width: 300px;
-    }
+  <head>
 
-    input[type="password"] {
-      padding: 0.5rem;
-      width: 100%;
-      margin: 1rem 0;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-    }
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-    button {
-      padding: 0.5rem 1rem;
-      background-color: #111827;
-      color: white;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-    }
+    <title>David James - Author</title>
+	
+	
 
-    .error {
-      color: red;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-    }
+    <!-- Bootstrap core CSS -->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    .locked-out {
-      color: orange;
-      margin-top: 1rem;
-      font-size: 0.9rem;
-    }
-  </style>
-</head>
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" href="assets/css/fontawesome.css">
+	<link rel="stylesheet" href="assets/css/fontawesome.css">
+    <link rel="stylesheet" href="assets/css/templatemo-villa-agency.css">
+    <link rel="stylesheet" href="assets/css/animate.css">
+    <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+
+
+
+<style>
+
+	.underbannerh {
+		text-align: center;
+	}
+	
+	col-md-4 {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+
+		h1 {
+	  white-space: nowrap;
+	  overflow: hidden;
+	  text-overflow: ellipsis;
+	}
+
+
+  .author-blurb .container {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+
+	.author-blurb, 
+.author-blurb p {
+  color: #fff !important;
+}
+
+
+	.author-blurb p {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  font-size: clamp(0.95rem, 1.6vw, 1.1rem);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+	
+  .author-blurb {
+  background: #000; /* black background */
+  color: #fff; /* white text */
+  padding: clamp(1rem, 2.5vh, 2.5rem) 1rem;
+  text-align: center;
+  box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+	
+  /* Optional: better contrast for long lines on large screens */
+  @media (min-width: 1000px) {
+    .author-blurb p { font-size: 1.05rem; }
+  }
+	
+	
+
+  
+
+	
+</style>
+
+
+  </head>
+
 <body>
-  <div class="container">
-    <h2>Enter Password to Continue</h2>
-    <input type="password" id="password" placeholder="Password" />
-    <button onclick="checkPassword()">Enter</button>
-    <div class="error" id="errorMsg"></div>
-    <div class="locked-out" id="lockMsg"></div>
-    <div id="countdown" style="font-weight: bold; color: green;"></div>
+
+ 
+
+  <div class="sub-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 col-md-8">
+          <ul class="info">
+            <p>Connect with me</p>
+            
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <ul class="social-links">
+            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+            
+          </ul>
+        </div>
+      </div>
+    </div>
   </div>
 
-  <script>
-    const correctPassword = "bosorne-books-website678"; // Change this to your desired password
-    let attempts = 0;
-    const maxAttempts = 7;
-    const lockoutTime = 5 * 60 * 1000; // 5 minutes in milliseconds
-    let isLockedOut = false;
-    let lockoutEndTime;
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <nav class="main-nav">
+                    <!-- ***** Logo Start ***** -->
+                    <a href="index.html" class="logo">
+                        <h1>David James - Author</h1>
+                    </a>
+                    <!-- ***** Logo End ***** -->
+                    <!-- ***** Menu Start ***** -->
+                    <ul class="nav">
+					
+                      <li><a href="books.html">How & Why</a></li>
+                      <li><a href="what-next.html">What Next</a></li>
+					   <li><a href="about-me.html">Author</a></li>
+                      <li><a href="reviews.html">Reviews</a></li>
+                       <li><a href="blog.html">Blog</a></li>
 
-    function checkPassword() {
-      const password = document.getElementById("password").value;
-      const errorMsg = document.getElementById("errorMsg");
-      const lockMsg = document.getElementById("lockMsg");
-      const countdownDisplay = document.getElementById("countdown");
+					  
+                     
+                     <li><a href="https://amzn.eu/d/dYdwb4g" target="_blank"><i class="fa fa-shopping-bag"></i> Buy Now</a></li>
 
-      if (isLockedOut) {
-        const timeLeft = Math.ceil((lockoutEndTime - Date.now()) / 1000);
-        lockMsg.textContent = `You are locked out 🔒😟☹️. Try again in ${timeLeft} seconds.`;
-        startCountdown(timeLeft);
-        return;
-      }
+                  </ul>   
+                    <a class='menu-trigger'>
+                        <span>Menu</span>
+                    </a>
+                    <!-- ***** Menu End ***** -->
+                </nav>
+            </div>
+        </div>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
 
-      if (password === correctPassword) {
-        // Redirect to the homepage if the password is correct
-        window.location.href = "homepage.html";
-      } else {
-        attempts++;
-        errorMsg.textContent = `Oopsies! Have another go🔒. Attempts: ${attempts}/${maxAttempts}`;
-        lockMsg.textContent = ""; // Clear the lockout message
-        countdownDisplay.textContent = ""; // Reset countdown display
+  <div class="main-banner">
+    <div class="owl-carousel owl-banner">
+      <div class="item item-1">
+        <div class="header-text">
+          <span class="category">Buy at <em>Amazon & Waterstones</em></span>
+          <h2>Learn more about the flower in winter series</h2>
+        </div>
+      </div>
+	  
+	  </div>
+	  </div>
 
-        if (attempts >= maxAttempts) {
-          isLockedOut = true;
-          lockoutEndTime = Date.now() + lockoutTime;
-          lockMsg.textContent = `Oh no! Sorry, but I'm locking you out for 5 minutes. 🔒😔😟☹️`;
-          
-          const timeLeft = Math.ceil(lockoutTime / 1000);
-          startCountdown(timeLeft);
-          
-          setTimeout(() => {
-              isLockedOut = false;
-              attempts = 0; // Reset attempts after lockout ends
-              lockMsg.textContent = ""; // Clear lockout message
-              errorMsg.textContent = ""; // Clear previous error message
-              countdownDisplay.textContent = ""; // Clear countdown display
-          }, lockoutTime);
-        }
-      }
-    }
+	<section class="author-blurb" role="region" aria-label="Author message">
+  <div class="container">
+	  <br>
+    <p>
+      Becoming a self-published author at the ripe old age of 80, and, because I am no longer able to drive or get about to promote my work in person, this website, Facebook and word-of-mouth are the only way of communicating with as wide an audience as possible.
+    </p>
+  </br>
+  </div>
+</section>
+  
+  <div class="underbannerh">
+  
+  <br>
+  
+  <br>
+  
+  <h1>About the book</h1>
+  
+  <br>
+  
+  </div>
+  
+  <div class="underbanner">
+  
+  <div class="container">
+  <div class="row align-items-center">
+    <div class="col-md-4">
+      <img src="assets/images/davidbook.jpg" class="img-fluid" alt="Image" style="width: 300px; height: 400px; auto;">
+    </div>
+    <div class="col-md-8">
+	
+	
+	
+	
+	<p>Set against the backdrop of World War II, "A Flower in Winter" follows the journey of 13-year-old Samuel De Souza. As Germany invades Holland in May 1940, Samuel, a Jewish boy, is given a 
+	forged passport and smuggled out of the country under the care of two elderly strangers. Arriving in England, he finds solace and guidance from Jannie, one of his caretakers who becomes a mentor and father figure.
+	Samuel's life takes a turn when he falls in love with Annie. However, driven by the atrocities happening in his homeland and the personal loss he experiences, he lies about his age to enlist in the Royal Navy, determined to stand against the oppressive regime threatening his people. 
+	The narrative delves into themes of love, honor, duty, and bravery, drawing inspiration from real events. The title is derived from a Portuguese proverb: "The love of an old man is like a flower in winter."</p>
+	
+	
+	</div>
+	</div>
+	</div>
+	
+	</div>
+	
+	</div>
+	
+	<br>
+	<br>
+	<br>
+	<br>
+	
+	
+	
+	
 
-    function startCountdown(seconds) {
-      const countdownDisplay = document.getElementById("countdown");
-      
-      const interval = setInterval(() => {
-          if (seconds <= 0) {
-              clearInterval(interval); // Stop the countdown when it reaches 0
-              return;
-          }
+	
 
-          const minutes = Math.floor(seconds / 60);
-          const secs = seconds % 60;
-          countdownDisplay.textContent = `Time left: ${minutes}:${secs < 10 ? '0' : ''}${secs}`;
-          seconds--;
-      }, 1000);
-    }
-  </script>
-</body>
+  <footer>
+    <div class="container">
+      <div class="col-lg-8">
+        <p>Copyright © 2025 David James, All rights reserved.</p>
+		<br>
+		<p>Website by <a href="https://www.arthurmctriangle.com">Noah MD</a> </p>
+     
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <!-- Bootstrap core JavaScript -->
+  <script src="vendor/jquery/jquery.min.js"></script>
+  <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
+  <script src="assets/js/isotope.min.js"></script>
+  <script src="assets/js/owl-carousel.js"></script>
+  <script src="assets/js/counter.js"></script>
+  
+
+  </body>
 </html>
+
+
+
+
+
+
+
+
