@@ -102,6 +102,38 @@ https://templatemo.com/tm-591-villa-agency
     display: block;
   }
 
+	  .afiw-row {
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  margin: 30px 0;
+  text-align: left;
+}
+
+.afiw-row img {
+  width: 220px;
+  border-radius: 6px;
+}
+
+.afiw-text p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+/* Mobile friendly */
+@media (max-width: 768px) {
+  .afiw-row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .afiw-row img {
+    width: 70%;
+  }
+}
+
+	  
   </style>
 
   </head>
@@ -173,6 +205,18 @@ https://templatemo.com/tm-591-villa-agency
   <!-- Tab Content Sections -->
   <div id="tab1" class="tab-content active">
     <h1>A Flower In Winter</h1>
+	  <div class="afiw-row">
+  <img src="assets/images/flower-in-winter.jpg" alt="A Flower In Winter cover">
+
+  <div class="afiw-text">
+    <p>
+      Set against the backdrop of World War II, <em>A Flower In Winter</em>
+      follows the journey of thirteen-year-old Samuel De Souza as his life
+      is torn apart by war, exile, and survival.
+    </p>
+  </div>
+</div>
+
 	  <br>
 	  <br>
    <h1>How The Story Started</h1>
@@ -246,6 +290,7 @@ https://templatemo.com/tm-591-villa-agency
 
   </body>
 </html>
+
 
 
 
